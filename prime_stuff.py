@@ -43,14 +43,14 @@ def rwh_primes1(n):
             sieve[int(i*i/2)::i] = [False] * int(((n-i*i-1)/(2*i)+1))
     return [2] + [2*i+1 for i in range(1,int(n/2)) if sieve[int(i)]]
 
-
 def is_prime(n):
     if n<=1:
         return False
-    for i in range(int(math.floor(math.sqrt(n)))):
-        if n%i != 0:
+    for i in range(2,int(math.floor(math.sqrt(n)))):
+        if n%i == 0:
             return False
     return True
+
 
 if __name__ == '__main__':
     main()
